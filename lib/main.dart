@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:space_app/api/hello.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _fetchData() {
-    print('hello');
+    sayHello().then((value) => {
+      setState(() {
+        message = value;
+      })
+    });
   }
 
   final ButtonStyle buttonsStyle =
